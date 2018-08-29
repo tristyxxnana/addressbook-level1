@@ -82,7 +82,7 @@
 || Enter command: || [Command entered:  add wrong args wrong args]
 || Invalid command format: add 
 || add: Adds a person to the address book.
-|| 	Parameters: NAME p/PHONE_NUMBER e/EMAIL
+|| 	Parameters: NAME p/PHONE_NUMBER e/EMAIL c/PCODE
 || 	Example: add John Doe p/98765432 e/johnd@gmail.com
 || 
 || ===================================================

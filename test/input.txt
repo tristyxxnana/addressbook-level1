@@ -14,31 +14,48 @@
   list
 
 ##########################################################
-# test add person command, setup state for futuer tests
+# test add person command, setup state for future tests
 ##########################################################
 
   # should catch invalid args format
   add wrong args wrong args
-  add Valid Name p/12345 valid@email.butNoPrefix
-  add Valid Name 12345 e/valid@email.butPhonePrefixMissing
+  add Valid Name p/12345 valid@email.butNoPrefix c/555555
+  add Valid Name 12345 e/valid@email.butPhonePrefixMissing c/555555
+  add Valid Name p/12345 e/valid@email.butPCodePrefixMissing 555555
+  add Valid Name 12345.butNoPrefix valid@email.butNoPrefix c/555555
+  add Valid Name p/12345 valid@email.butNoPrefix 55555.butNoPrefix
+  add Valid Name 12345.butNoPrefix valid@email.butPCodePrefixMissing 555555
+  add Valid Name 12345.butNoPrefix valid@email.butNoPrefix 55555.butNoPrefix
+
   
   # should catch invalid person data
-  add []\[;] p/12345 e/valid@e.mail
-  add Valid Name p/not_numbers e/valid@e.mail
-  add Valid Name p/12345 e/notAnEmail
+  add []\[;] p/12345 e/valid@e.mail c/55555
+  add Valid Name p/not_numbers e/valid@e.mail c/555555
+  add Valid Name p/12345 e/notAnEmail c/555555
+  add Valid Name p/12345 e/valid@e.mail c/not_numbers
+  add Valid Name p/not_numbers e/notAnEmail c/555555
+  add Valid Name p/12345 e/notAnEmail c/not_numbers
+  add Valid Name p/not_numbers e/valid@e.mail c/not_numbers
+  add Valid Name p/not_numbers e/notAnEmail c/not_numbers
 
   # should add correctly
-  add Adam Brown p/111111 e/adam@gmail.com
+  add Adam Brown p/111111 e/adam@gmail.com c/555555
   list
-  add Betsy Choo p/222222 e/benchoo@nus.edu.sg
+  add Betsy Choo p/222222 e/benchoo@nus.edu.sg c/666666
   list
 
-  # order of phone and email should not matter
-  add Charlie Dickson e/charlie.d@nus.edu.sg p/333333
+  # order of phone, email and postal code should not matter
+  add Charlie Dickson e/charlie.d@nus.edu.sg p/333333 c/333333
   list
-  add Dickson Ee e/dickson@nus.edu.sg p/444444
+  add Dickson Ee e/dickson@nus.edu.sg c/222222 p/444444
   list
-  add Esther Potato p/555555 e/esther@notreal.potato
+  add Esther Potato p/555555 e/esther@notreal.potato c/555555
+  list
+  add James Goh p/66666 c/888888 e/james@yahoo.com
+  list
+  add Paul Lee c/444444 e/paul@msn.com p/99999
+  list
+  add Louis Tan c/555555 p/77777 e/louis@gmail.com
   list
 
 ##########################################################
